@@ -36,7 +36,7 @@ public class Schedule {
 
     public void LoadSchedule(String filename){
         if(filename == null){
-            LoadTestData();
+            LoadTestData2();
             return;
         }
         try {
@@ -184,6 +184,64 @@ public class Schedule {
 
         testMeeting.DStartTime.set(Calendar.HOUR_OF_DAY,13);
         testMeeting.DStartTime.set(Calendar.MINUTE,00);
+
+        testMeeting.setLocation("ARC Pavilion","Davis",DGeocoder);
+        for(int i = 0; i<7; i++){
+            testMeeting.DDays[i] = true;
+        }
+
+
+        Course testCourse = new Course();
+
+        testCourse.addMeeting(testMeeting);
+
+        DCourseList.add(testCourse);
+    }
+
+    public void LoadTestData2(){
+        Meeting testMeeting = new Meeting();
+        testMeeting.DEndDate.set(Calendar.MONTH,Calendar.FEBRUARY);
+        testMeeting.DEndDate.set(Calendar.DATE,01);
+        testMeeting.DEndDate.set(Calendar.HOUR_OF_DAY,14);
+        testMeeting.DEndDate.set(Calendar.MINUTE,00);
+
+
+        testMeeting.DEndTime.set(Calendar.HOUR_OF_DAY,15);
+        testMeeting.DEndTime.set(Calendar.MINUTE,00);
+
+
+        testMeeting.DStartTime.set(Calendar.HOUR_OF_DAY,13);
+        testMeeting.DStartTime.set(Calendar.MINUTE,50);
+
+        testMeeting.setLocation("Wellman Hall","Davis",DGeocoder);
+        for(int i = 0; i<7; i++){
+            testMeeting.DDays[i] = true;
+        }
+
+
+        Course testCourse = new Course();
+
+        testCourse.addMeeting(testMeeting);
+
+        DCourseList.add(testCourse);
+    }
+
+
+
+    public void LoadTestData3(){
+        Meeting testMeeting = new Meeting();
+        testMeeting.DEndDate.set(Calendar.MONTH,Calendar.FEBRUARY);
+        testMeeting.DEndDate.set(Calendar.DATE,01);
+        testMeeting.DEndDate.set(Calendar.HOUR_OF_DAY,14);
+        testMeeting.DEndDate.set(Calendar.MINUTE,00);
+
+
+        testMeeting.DEndTime.set(Calendar.HOUR_OF_DAY,15);
+        testMeeting.DEndTime.set(Calendar.MINUTE,00);
+
+
+        testMeeting.DStartTime.set(Calendar.HOUR_OF_DAY,13);
+        testMeeting.DStartTime.set(Calendar.MINUTE,55);
 
         testMeeting.setLocation("ARC Pavilion","Davis",DGeocoder);
         for(int i = 0; i<7; i++){

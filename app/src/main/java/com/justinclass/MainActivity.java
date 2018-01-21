@@ -251,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
             double meetingLat, meetingLong;
             meetingLat = DNextMeeting.getAddress().getLatitude();
             meetingLong = DNextMeeting.getAddress().getLongitude();
-            Uri gmmIntentUri = Uri.parse("google.navigation:geo:" + String.valueOf(meetingLat) + "," + String.valueOf(meetingLong));
+                Uri gmmIntentUri = Uri.parse("http://maps.google.com/maps?f=d&daddr="+ String.valueOf(meetingLat) + "," + String.valueOf(meetingLong));
             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
             mapIntent.setPackage("com.google.android.apps.maps");
             startActivity(mapIntent);

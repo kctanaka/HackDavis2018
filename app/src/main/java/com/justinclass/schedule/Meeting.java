@@ -17,6 +17,9 @@ public class Meeting {
     String DType = "Class"; // mostly optional to set. E.g. lecture, lab, discussion, etc.
     String DLocation;
     Address DAddress;
+    String DCourse;
+    Integer DFrequency;
+    Integer DCount;
     boolean[] DDays = new boolean[]{false,false,false,false,false,false,false};
     int NumMeetings;
     GregorianCalendar DStartTime;

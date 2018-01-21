@@ -46,11 +46,11 @@ public class Schedule {
 
                     int DayofWeek = now.get(Calendar.DAY_OF_WEEK);
 
-                    if(meeting.DDays[DayofWeek]){
+                    if(meeting.DDays[DayofWeek-1]){
                         GregorianCalendar meetingEndToday = new GregorianCalendar();
                         meetingEndToday.set(Calendar.HOUR_OF_DAY, meeting.getEndTime().get(Calendar.HOUR_OF_DAY));
                         meetingEndToday.set(Calendar.MINUTE, meeting.getEndTime().get(Calendar.MINUTE));
-                        if(meetingEndToday.after(now)){
+                        if(now.after(meetingEndToday)){
                             continue;
                         }
 
@@ -103,7 +103,7 @@ public class Schedule {
 
         testMeeting.setLocation("ARC Pavilion","Davis",DGeocoder);
         for(int i = 0; i<7; i++){
-            testMeeting.DDays[i] = false;
+            testMeeting.DDays[i] = true;
         }
 
 

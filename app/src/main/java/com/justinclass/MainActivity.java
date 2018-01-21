@@ -273,6 +273,34 @@ public class MainActivity extends AppCompatActivity {
                     longitudeValueBest.setText(longitudeBest + "");
                     latitudeValueBest.setText(latitudeBest + "");
                     Toast.makeText(MainActivity.this, "Best Provider update", Toast.LENGTH_SHORT).show();
+
+                    DNextMeeting = schedule.nextMeeting();
+                    if (DNextMeeting !=null) {
+                        DAtLocation = IsAtNextMeeting(DNextMeeting);
+                        int minsTillClass = MinutesEarly(DNextMeeting.getStartTime());
+                        if (DAtLocation) {
+                            if (minsTillClass > 0) {
+                                line1Value.setText("You arrived " + String.valueOf(minsTillClass) + " minutes early!");
+                                line2Value.setText("Great job!");
+                                button.setText("@string/checkin_button");
+                            }
+                            if (minsTillClass == 0) {
+                                line1Value.setText("You arrived on time!");
+                                line2Value.setText("Good job!");
+                                button.setText("@string/checkin_button");
+                            }
+                            if (minsTillClass < 0) {
+                                line1Value.setText("You arrived " + String.valueOf(Math.abs(minsTillClass)) + " minutes late.");
+                                line2Value.setText("We can do better next time!");
+                                button.setText("@string/checkin_button");
+                            }
+
+                        } else {
+                            line1Value.setText("Next class in " + String.valueOf(minsTillClass));
+                            line2Value.setText("At " + DNextMeeting.getLocationName());
+                            button.setText("@string/go_button");
+                        }
+                    }
                     try{
                         Address address = geocoder.getFromLocation(latitudeBest,longitudeBest,1).get(0);
                         if (address.getFeatureName() != null){
@@ -281,34 +309,6 @@ public class MainActivity extends AppCompatActivity {
                         else
                         {
                             placeName.setText("N/A");
-                        }
-
-                        DNextMeeting = schedule.nextMeeting();
-                        if (DNextMeeting !=null) {
-                            DAtLocation = IsAtNextMeeting(DNextMeeting);
-                            int minsTillClass = MinutesEarly(DNextMeeting.getStartTime());
-                            if (DAtLocation) {
-                                if (minsTillClass > 0) {
-                                    line1Value.setText("You arrived " + String.valueOf(minsTillClass) + " minutes early!");
-                                    line2Value.setText("Great job!");
-                                    button.setText("@string/checkin_button");
-                                }
-                                if (minsTillClass == 0) {
-                                    line1Value.setText("You arrived on time!");
-                                    line2Value.setText("Good job!");
-                                    button.setText("@string/checkin_button");
-                                }
-                                if (minsTillClass < 0) {
-                                    line1Value.setText("You arrived " + String.valueOf(Math.abs(minsTillClass)) + " minutes late.");
-                                    line2Value.setText("We can do better next time!");
-                                    button.setText("@string/checkin_button");
-                                }
-
-                            } else {
-                                line1Value.setText("Next class in " + String.valueOf(minsTillClass));
-                                line2Value.setText("At " + DNextMeeting.getLocationName());
-                                button.setText("@string/go_button");
-                            }
                         }
 
                     }

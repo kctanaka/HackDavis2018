@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
+import android.widget.TextView;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -89,6 +90,15 @@ public class PhoneLockActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        String message;
+
+        Bundle extras = getIntent().getExtras();
+        if (extras == null){
+            message = "";
+        } else {
+            message = extras.getString("CLASS_MESSAGE");
+        }
+
         setContentView(R.layout.activity_phone_lock);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -98,6 +108,9 @@ public class PhoneLockActivity extends AppCompatActivity {
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
+
+        TextView text = (TextView) findViewById(R.id.fullscreen_content);
+        text.setText(message);
 
 
         // Set up the user interaction to manually show or hide the system UI.

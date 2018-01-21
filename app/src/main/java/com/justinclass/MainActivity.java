@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     /* Location variables */
     public static final int MY_REQUEST_LOCATION = 4;
 
-    public static final double ACCURACY_VALUE = 0.0002;
+    public static final double ACCURACY_VALUE = 0.002;
 
 
     LocationManager locationManager;
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
         if(DNextMeeting == null){
             return;
         }
-        if(DAtLocation) {
+        if(!DAtLocation) {
             double meetingLat, meetingLong;
             meetingLat = DNextMeeting.getAddress().getLatitude();
             meetingLong = DNextMeeting.getAddress().getLongitude();
@@ -256,7 +256,21 @@ public class MainActivity extends AppCompatActivity {
             mapIntent.setPackage("com.google.android.apps.maps");
             startActivity(mapIntent);
         } else {
+            String message = "";
+            int minsTillClass = MinutesEarly(DNextMeeting.getStartTime());
+                if (minsTillClass > 0) {
+                    message = "You won 7 points! \n Class starts in: " + String.valueOf(minsTillClass) + " minutes";
+                }
+                else{
+                    int minsFromClass, hoursFromClass;
+                    GregorianCalendar now = new GregorianCalendar();
+                    minsFromClass = DNextMeeting.getEndTime().get(Calendar.MINUTE) - now.get(Calendar.MINUTE);
+                    hoursFromClass = DNextMeeting.getEndTime().get(Calendar.HOUR_OF_DAY) - now.get(Calendar.HOUR_OF_DAY);
+                    minsFromClass = hoursFromClass * 60 + minsFromClass;
+                    message = "You won 5 points \n Class ends in: " + String.valueOf(minsFromClass) + " minutes";
+                }
             Intent lockintent = new Intent(this, PhoneLockActivity.class);
+            lockintent.putExtra("CLASS_MESSAGE", message);
             startActivity(lockintent);
         }
     }
@@ -282,23 +296,23 @@ public class MainActivity extends AppCompatActivity {
                             if (minsTillClass > 0) {
                                 line1Value.setText("You arrived " + String.valueOf(minsTillClass) + " minutes early!");
                                 line2Value.setText("Great job!");
-                                button.setText("@string/checkin_button");
+                                button.setText(R.string.checkin_button);
                             }
                             if (minsTillClass == 0) {
                                 line1Value.setText("You arrived on time!");
                                 line2Value.setText("Good job!");
-                                button.setText("@string/checkin_button");
+                                button.setText(R.string.checkin_button);
                             }
                             if (minsTillClass < 0) {
                                 line1Value.setText("You arrived " + String.valueOf(Math.abs(minsTillClass)) + " minutes late.");
                                 line2Value.setText("We can do better next time!");
-                                button.setText("@string/checkin_button");
+                                button.setText(R.string.checkin_button);
                             }
 
                         } else {
-                            line1Value.setText("Next class in " + String.valueOf(minsTillClass));
-                            line2Value.setText("At " + DNextMeeting.getLocationName());
-                            button.setText("@string/go_button");
+                            line1Value.setText("Next class in " + String.valueOf(minsTillClass)+ " minutes.");
+                            line2Value.setText("at " + DNextMeeting.getLocationName());
+                            button.setText(R.string.go_button);
                         }
                     }
                     try{

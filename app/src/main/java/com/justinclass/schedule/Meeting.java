@@ -6,6 +6,7 @@ import android.location.Geocoder;
 import android.text.format.Time;
 
 import java.io.IOException;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 /**
@@ -17,31 +18,32 @@ public class Meeting {
     String DLocation;
     Address DAddress;
     boolean[] DDays = new boolean[]{false,false,false,false,false,false,false};
-    Time DStartTime;
-    Time DEndTime;
-    Time DEndDate;
+    int NumMeetings;
+    GregorianCalendar DStartTime;
+    GregorianCalendar DEndTime;
+    GregorianCalendar DEndDate;
 
     public Meeting(){
     }
 
-    public void setStartTime(Time startTime){
+    public void setStartTime(GregorianCalendar startTime){
         DStartTime = startTime;
     }
-    public Time getStartTime(){
+    public GregorianCalendar getStartTime(){
         return DStartTime;
     }
 
-    public void setEndTime(Time endTime){
+    public void setEndTime(GregorianCalendar endTime){
         DEndTime = endTime;
     }
-    public Time getEndTime(){
+    public GregorianCalendar getEndTime(){
         return DEndTime;
     }
 
-    public void setEndDate(Time endDate){
+    public void setEndDate(GregorianCalendar endDate){
         DEndDate = endDate;
     }
-    public Time getEndDate(){
+    public GregorianCalendar getEndDate(){
         return DEndDate;
     }
 

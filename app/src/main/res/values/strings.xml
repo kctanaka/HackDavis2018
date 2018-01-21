@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">JustInClass</string>
     <string name="title_activity_map_to_class">Map</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_schedule">Schedule</string>
+    <string name="title_main">Main</string>
+    <string name="title_courses">Courses</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -13,13 +13,12 @@ public class StartScreen extends AppCompatActivity {
         setContentView(R.layout.activity_start_screen);
     }
 
-    protected launchMain(View view){
-            Intent intent = new Intent(this, MainActivity.class);
+    public void launchMain(View view){
+            Intent intent = new Intent(this, Main2Activity.class);
             //String message = editText.getText().toString();
             //intent.putExtra(EXTRA_MESSAGE, message);
             startActivity(intent);
-        }
-
     }
-
 }
+
+

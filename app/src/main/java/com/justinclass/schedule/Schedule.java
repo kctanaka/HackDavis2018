@@ -34,7 +34,11 @@ public class Schedule {
         DGeocoder = geocoder;
     }
 
-    public void LoadSchedule(){
+    public void LoadSchedule(String filename){
+        if(filename == null){
+            LoadTestData();
+            return;
+        }
         try {
             String path = System.getProperty("user.dir");
             path = path.split("src")[0] + "sampledata";
@@ -166,7 +170,31 @@ public class Schedule {
         return nextMeeting;
     }
 
-    public void LoadSchedule(){
+    public void LoadTestData(){
+        Meeting testMeeting = new Meeting();
+        testMeeting.DEndDate.set(Calendar.MONTH,Calendar.FEBRUARY);
+        testMeeting.DEndDate.set(Calendar.DATE,01);
+        testMeeting.DEndDate.set(Calendar.HOUR_OF_DAY,14);
+        testMeeting.DEndDate.set(Calendar.MINUTE,00);
 
+
+        testMeeting.DEndTime.set(Calendar.HOUR_OF_DAY,14);
+        testMeeting.DEndTime.set(Calendar.MINUTE,00);
+
+
+        testMeeting.DStartTime.set(Calendar.HOUR_OF_DAY,13);
+        testMeeting.DStartTime.set(Calendar.MINUTE,00);
+
+        testMeeting.setLocation("ARC Pavilion","Davis",DGeocoder);
+        for(int i = 0; i<7; i++){
+            testMeeting.DDays[i] = true;
+        }
+
+
+        Course testCourse = new Course();
+
+        testCourse.addMeeting(testMeeting);
+
+        DCourseList.add(testCourse);
     }
 }

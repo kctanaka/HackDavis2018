@@ -24,6 +24,8 @@ public class Meeting {
     GregorianCalendar DEndDate;
 
     public Meeting(){
+        DStartTime =  new GregorianCalendar();
+        DEndTime = new GregorianCalendar();
     }
 
     public void setStartTime(GregorianCalendar startTime){

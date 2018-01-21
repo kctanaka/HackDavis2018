@@ -37,6 +37,8 @@ public class Schedule {
                         continue;
                     }
 
+                    // Might be missing checking for case where start time/date is much later than now (over 24 hrs)
+
                     int DayofWeek = now.get(Calendar.DAY_OF_WEEK);
 
                     if(meeting.DDays[DayofWeek]){
@@ -69,5 +71,9 @@ public class Schedule {
             }
         }
         return nextMeeting;
+    }
+
+    public void LoadSchedule(){
+
     }
 }

@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">JustInClass</string>
+
     <string name="title_activity_map_to_class">Map</string>
+
+    <string name="pause">Pause Location Updates</string>
+    <string name="resume">Resume Location Updates</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>

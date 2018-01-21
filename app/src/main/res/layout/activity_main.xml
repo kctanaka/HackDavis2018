@@ -87,29 +87,12 @@
             android:text="0.0000"
             android:textSize="20sp"/>
 
-        <View
-            android:id="@+id/separator1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/latitudeValueBest"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/material_blue_grey_800"/>
-
-        <TextView
-            android:id="@+id/locationNameHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/separator1"
-            android:text="You are at:"
-            android:textSize="20sp"/>
         <TextView
             android:id="@+id/locationName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/locationNameHeading"
+            android:layout_below="@id/latitudeValueBest"
             android:text="N/A"
             android:textSize="20sp"/>
 
@@ -177,6 +160,40 @@
             android:text="N/A"
             android:textSize="20sp"/>
 
+        <View
+            android:id="@+id/separator3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/classLocationName"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/material_blue_grey_800"/>
+        <TextView
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/separator3"
+            android:text="N/A"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/line1"
+            android:text="N/A"
+            android:textSize="20sp"/>
+
+
+        <Button
+            android:id="@+id/centerActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/line2"
+            android:text="@string/none_button"
+            android:onClick="buttonCallBack"/>
 
 
 

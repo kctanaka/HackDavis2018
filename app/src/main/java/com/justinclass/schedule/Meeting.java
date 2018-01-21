@@ -26,6 +26,7 @@ public class Meeting {
     public Meeting(){
         DStartTime =  new GregorianCalendar();
         DEndTime = new GregorianCalendar();
+        DEndDate = new GregorianCalendar();
     }
 
     public void setStartTime(GregorianCalendar startTime){
@@ -58,6 +59,9 @@ public class Meeting {
         catch (IOException ex){
             DAddress = null;
         }
+    }
+    public String getLocationName(){
+        return DLocation;
     }
     public Address getAddress(){
         return DAddress;

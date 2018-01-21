@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class StartScreen extends AppCompatActivity {
+    String filename = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +16,7 @@ public class StartScreen extends AppCompatActivity {
 
     public void launchMain(View view){
             Intent intent = new Intent(this, MainActivity.class);
-            //String message = editText.getText().toString();
-            //intent.putExtra(EXTRA_MESSAGE, message);
+            intent.putExtra("EXTRA_MESSAGE", filename);
             startActivity(intent);
         }
 

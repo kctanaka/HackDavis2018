@@ -46,7 +46,17 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"></activity>
+            android:label="@string/title_activity_main2" />
+        <activity
+            android:name=".PhoneLockActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_phone_lock"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/FullscreenTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.justinclass.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -21,6 +21,12 @@ public class Course {
             //print error statement
         }
     }
+    public void setCourseName(String name){
+        DCourseName = name;
+    }
+    public String getCourseName(){
+        return DCourseName;
+    }
 
     public List<Meeting> getMeetings(){
         return DMeetingList;
